@@ -14,7 +14,7 @@ while ($true)
     $arrService.Refresh()
     if ($arrService.Status -eq 'Running')
     {
-        Write-Host 'Service is now Running'
+        Write-Host 'Service is Running'
     }
 
 }
