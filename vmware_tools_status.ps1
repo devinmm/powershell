@@ -12,8 +12,7 @@ while ($true)
     
     Start-Sleep -seconds 600
     $arrService.Refresh()
-    if ($arrService.Status -eq 'Running')
-    {
+    if ($arrService.Status -eq 'Running'){
         Write-Host 'Service is Running'
     }
 
