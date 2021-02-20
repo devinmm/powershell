@@ -1,5 +1,12 @@
-$ServiceName = 'VMTools'
-$arrService = Get-Service -Name $ServiceName
+if ($args[0]){
+$ServiceName = $args[0]
+}
+else{
+    Write-Host 'No Service Name'
+    exit 404
+} 
+
+$arrService = Get-Service -Name $ServiceName -ErrorAction Stop
 
 while ($true)
 {
