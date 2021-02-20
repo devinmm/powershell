@@ -6,21 +6,26 @@ else{
     exit 404
 } 
 
-$arrService = Get-Service -Name $ServiceName -ErrorAction Stop
+if (Get-Service -Name $ServiceName -ErrorAction SilentlyContinue){
+    $arrService = Get-Service -Name $ServiceName
+    while ($true)
+    {
 
-while ($true)
-{
-
-    if ($arrService.Status -ne 'Running'){
-        Start-Service $ServiceName
-        write-host $arrService.status
-        write-host 'Service starting'
-    }
+        if ($arrService.Status -ne 'Running'){
+            Start-Service $ServiceName
+            write-host $arrService.status
+            write-host 'Service starting'
+        }
     
-    Start-Sleep -seconds 600
-    $arrService.Refresh()
-    if ($arrService.Status -eq 'Running'){
-        Write-Host 'Service is Running'
-    }
+        Start-Sleep -seconds 600
+        $arrService.Refresh()
+        if ($arrService.Status -eq 'Running'){
+            Write-Host 'Service is Running'
+        }
 
+    }
+}
+else{
+    Write-Host 'Service does not exist'
+    exit 404
 }
