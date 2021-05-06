@@ -3,12 +3,12 @@ Clear-Host
 # Connect to Exchange Online
 $credentials = get-credential;
 Connect-ExchangeOnline -Credential $credentials
-$SccSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://ps.compliance.protection.outlook.com/powershell-liveid/ -Credential $credentials -Authentication "Basic" -AllowRedirection;
+$SccSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://ps.compliance.protection.outlook.com/powershell-liveid/ -Credential $credentials -Authentication "Default" -AllowRedirection;
 Import-PSSession $SccSession
 
-$mailboxes = @("mailbox1@example.net", "mailbox2@example.net")
+$mailboxes = @("lleckelt@silent-aire.com")
 
-$monthsToKeep = 3
+$monthsToKeep = 78
 
 $sourceDate = (Get-Date).AddMonths(-$monthsToKeep)
 
