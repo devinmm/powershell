@@ -10,7 +10,6 @@ if (Get-Service -Name $ServiceName -ErrorAction SilentlyContinue){
     $arrService = Get-Service -Name $ServiceName
     while ($true)
     {
-
         if ($arrService.Status -ne 'Running'){
             Start-Service $ServiceName
             write-host $arrService.status
@@ -22,7 +21,6 @@ if (Get-Service -Name $ServiceName -ErrorAction SilentlyContinue){
         if ($arrService.Status -eq 'Running'){
             Write-Host 'Service is Running'
         }
-
     }
 }
 else{
