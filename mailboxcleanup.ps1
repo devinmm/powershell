@@ -10,11 +10,12 @@ $mailboxes = @("lleckelt@silent-aire.com")
 
 $monthsToKeep = 78
 
-$sourceDate = (Get-Date).AddMonths(-$monthsToKeep)
+#$sourceDate = (Get-Date).AddMonths(-$monthsToKeep)
+sourceDate = '1/1/2015'
 
 $searchName = "PurgeEmails"
 
-$contentQuery = "received<=$($sourcDeate) AND kind:email"
+$contentQuery = "received<=$($sourceDate) AND kind:email"
 
 # Clean-up any old searches from failed runs of this script
 if (Get-ComplianceSearch -Identity $searchName) {
